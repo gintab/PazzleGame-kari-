@@ -13,6 +13,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     Vector2 m_dir = Vector2.zero;
     bool m_moveing = false;
 
+
     void Start()
     {
     }
@@ -28,42 +29,47 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
                 if (v != 0)
                 {
-                    m_moveing = true;
                     m_dir = new Vector2(0, v);
-                    Move();
+                    Move(m_dir);
                 }
                 else if (h != 0)
                 {
-                    m_moveing = true;
+                    transform.localScale = h > 0 ? new Vector3(-1, 1, 1) : Vector3.one;
                     m_dir = new Vector2(h, 0);
-                    Move();
+                    Move(m_dir);
                 }
             }
         }
+        else
+        {
+            AudioManager.Instance.SubeSE();
+        }
     }
 
-    void Move()
+    void Move(Vector2 dir)
     {
-        Vector2 movePos = (Vector2)this.transform.position + m_dir * m_squareSize;
+        m_moveing = true;
 
-        RaycastHit2D hitBlock = Physics2D.Raycast(this.transform.position, m_dir, m_squareSize, m_blockLayer);
-        Debug.DrawLine(this.transform.position, (Vector2)this.transform.position + m_dir * m_squareSize);
+        Vector2 movePos = (Vector2)this.transform.position + dir * m_squareSize;
+        RaycastHit2D hitBlock = Physics2D.Raycast(this.transform.position, dir, m_squareSize, m_blockLayer);
+        Debug.DrawLine(this.transform.position, (Vector2)this.transform.position + dir * m_squareSize);
 
         if (!hitBlock.collider)
         {
-            transform.DOMove(movePos, m_oneSquareSecond).OnComplete(() => Move()).SetEase(Ease.Linear);
+            transform.DOMove(movePos, m_oneSquareSecond).OnComplete(() => Move(dir)).SetEase(Ease.Linear);
         }
         else
         {
-            hitBlock.collider.gameObject.GetComponent<Block>().Hit();
             Stop();
+            AudioManager.Instance.StopSE();
+            hitBlock.collider.gameObject.GetComponent<Block>().Hit();
         }
     }
 
     public void Stop()
     {
         m_moveing = false;
-        m_dir = Vector2.zero;
     }
+
 }
 
