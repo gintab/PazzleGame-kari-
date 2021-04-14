@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-    public void Change()
+    public void Change(string stage)
     {
         Debug.Log("a");
-        SceneManager.LoadScene((StageManager.Instance.NowScene + 1)+"Stage");
+        SceneManager.LoadScene(stage);
     }
 }

@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/yamaychi/Title.unity
+    guid: 8e229ae55fa35b847a9afdffcd67d341
+  - enabled: 1
     path: Assets/yamaychi/1Stage.unity
     guid: e7a0eb7a1c9fe944c85e557704e62087
   - enabled: 1
     path: Assets/yamaychi/2Stage.unity
     guid: 8bf11af361d0f5e43aabed1e0b2badd5
+  - enabled: 1
+    path: Assets/yamaychi/Over.unity
+    guid: a373707f39e7b8c4c99265e6a4fb2a2c
   m_configObjects: {}
