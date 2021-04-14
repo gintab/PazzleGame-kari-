@@ -13,11 +13,9 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     Vector2 m_dir = Vector2.zero;
     bool m_moveing = false;
 
-    AudioSource m_as;
 
     void Start()
     {
-        m_as = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -44,13 +42,12 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         }
         else
         {
-            //m_as
+            AudioManager.Instance.SubeSE();
         }
     }
 
     void Move(Vector2 dir)
     {
-        Debug.Log(dir);
         m_moveing = true;
 
         Vector2 movePos = (Vector2)this.transform.position + dir * m_squareSize;
@@ -64,7 +61,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         else
         {
             Stop();
-            //m_as
+            AudioManager.Instance.StopSE();
             hitBlock.collider.gameObject.GetComponent<Block>().Hit();
         }
     }
@@ -74,27 +71,5 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         m_moveing = false;
     }
 
-    //public void Bounce()
-    //{
-    //    if (m_dir.x > 0)
-    //    {
-    //        m_dir.x = -1;
-    //    }
-    //    else
-    //    {
-    //        m_dir.x = 1;
-    //    }
-
-    //    if (m_dir.y > 0)
-    //    {
-    //        m_dir.y = -1;
-    //    }
-    //    else
-    //    {
-    //        m_dir.y = 1;
-    //    }
-
-    //    Move(m_dir);
-    //}
 }
 
