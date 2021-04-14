@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float m_speed = 5f;
+    Vector2 m_dir = Vector2.zero;
     bool m_moveing = false;
     Rigidbody2D m_rb;
 
@@ -15,11 +16,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Vector2 dir = Vector2.zero;
 
-        if (dir != Vector2.zero)
+        if (m_dir != Vector2.zero)
         {
-            m_rb.velocity = dir * m_speed;
+            m_moveing = true;
+            m_rb.velocity = m_dir * m_speed;
+            Debug.Log(m_dir);
+
         }
 
         if (!m_moveing)
@@ -29,13 +32,12 @@ public class PlayerController : MonoBehaviour
 
             if (v != 0)
             {
-                dir.y = v;
+                m_dir.y = v;
             }
             else if (h != 0)
             {
-                dir.x = h;
+                m_dir.x = h;
             }
-            Debug.Log(dir);
         }
     }
 }
