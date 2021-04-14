@@ -11,6 +11,6 @@ public class GoalObj : Block
     }
     public override void Hit()
     {
-        Instantiate(Resources.Load("ClearPanel"), canvas.transform);
+        //Instantiate(Resources.Load("ClearPanel"), canvas.transform);
     }
 }
