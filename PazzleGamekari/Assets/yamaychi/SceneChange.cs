@@ -8,6 +8,6 @@ public class SceneChange : MonoBehaviour
     public void Change()
     {
         Debug.Log("a");
-        SceneManager.LoadScene("Stage"+(StageManager.Instance.NowScene+1));
+        SceneManager.LoadScene((StageManager.Instance.NowScene + 1)+"Stage");
     }
 }
