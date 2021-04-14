@@ -10,14 +10,21 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     [SerializeField] AudioClip Stop = null;
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
     public void SubeSE()
     {
-        audioSource.PlayOneShot(Suberi);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(Suberi);
+        }
+        
     }
     public void StopSE()
     {
-        audioSource.PlayOneShot(Stop);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(Stop);
+        }
     }
 }
