@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeBlock : MonoBehaviour
+public class ChangeBlock : Block
 {
     GameObject block1;
     GameObject block2;
-    Rigidbody2D m_rb;
     bool block = true;
     // Start is called before the first frame update
     void Start()
@@ -32,5 +31,10 @@ public class ChangeBlock : MonoBehaviour
                 block = true;
             }
         }
+    }
+
+    public override void Hit()
+    {
+
     }
 }

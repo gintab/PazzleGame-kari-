@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReflectionBlock : MonoBehaviour
+public class ReflectionBlock : Block
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,9 @@ public class ReflectionBlock : MonoBehaviour
     void Update()
     {
         
+    }
+    public override void Hit()
+    {
+        throw new System.NotImplementedException();
     }
 }

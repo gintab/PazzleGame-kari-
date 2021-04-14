@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class BreakBlock : Block
+public class DeathBlock : Block
 {
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,6 @@ public class BreakBlock : Block
 
     public override void Hit()
     {
-        Destroy(this.gameObject);
+        SceneManager.LoadScene("Over");
     }
 }
