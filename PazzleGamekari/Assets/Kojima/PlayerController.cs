@@ -7,8 +7,10 @@ using DG.Tweening;
 public class PlayerController : SingletonMonoBehaviour<PlayerController>
 {
     [SerializeField] float m_boxSize = 50f;
-    [SerializeField] float m_speed = 5f;
+    [SerializeField] float m_oneBoxSecond = 5f;
     [SerializeField] GameObject m_HitCollider = null;
+    [SerializeField] LayerMask m_blockLayer;
+
 
     Vector2 m_dir = Vector2.zero;
     bool m_moveing = false;
@@ -60,10 +62,20 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     {
         Vector2 movePos = (Vector2)this.transform.position + m_dir * m_boxSize;
 
-        m_HitCollider.SetActive(true);
-        m_HitCollider.transform.position = movePos;
+        Debug.DrawLine(this.transform.position, movePos);
+        RaycastHit2D hitBlock = Physics2D.Raycast(this.transform.position, m_dir, m_boxSize, m_blockLayer);
+        if (hitBlock.collider)
+        {
+            hitBlock.collider.gameObject.GetComponent<Block>().Hit();
+        }
+        else
+        {
+            transform.DOMove(movePos, m_oneBoxSecond);
 
-        transform.DOMove(movePos, m_speed);
+        }
+
+        
+
         
     } 
 }
