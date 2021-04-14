@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,15 +17,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
-        if (m_dir != Vector2.zero)
-        {
-            m_moveing = true;
-            m_rb.velocity = m_dir * m_speed;
-            Debug.Log(m_dir);
-
-        }
-
         if (!m_moveing)
         {
             float v = Input.GetAxisRaw("Vertical");
@@ -32,12 +24,32 @@ public class PlayerController : MonoBehaviour
 
             if (v != 0)
             {
-                m_dir.y = v;
+                m_moveing = true;
+                m_dir = new Vector2(0, v);
             }
             else if (h != 0)
             {
-                m_dir.x = h;
+                m_moveing = true;
+                m_dir = new Vector2(h, 0);
             }
         }
+
+        if (m_moveing)
+        {
+            m_rb.velocity = m_dir * m_speed;
+        }
+    }
+
+    public void Stop()
+    {
+        m_moveing = false;
+        m_rb.velocity = Vector2.zero;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        Stop();
     }
 }
+
