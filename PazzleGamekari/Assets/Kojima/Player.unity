@@ -784,7 +784,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1781723896}
-        m_MethodName: Stop
+        m_MethodName: Bounce
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -964,6 +964,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4725346334786052040, guid: e4139e408d1bbfe42a9a8eb5757024c4,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4725346334786052043, guid: e4139e408d1bbfe42a9a8eb5757024c4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -972,7 +977,7 @@ PrefabInstance:
     - target: {fileID: 4725346334786052043, guid: e4139e408d1bbfe42a9a8eb5757024c4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4725346334786052043, guid: e4139e408d1bbfe42a9a8eb5757024c4,
         type: 3}
