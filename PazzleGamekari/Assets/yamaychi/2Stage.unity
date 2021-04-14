@@ -317,6 +317,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneChangePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 1968446291458318594, guid: fc11570b90cacfd4080fb69a52d1051c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208966340558141137, guid: fc11570b90cacfd4080fb69a52d1051c,
+        type: 3}
+      propertyPath: m_Text
+      value: unchi
+      objectReference: {fileID: 0}
     - target: {fileID: 7511204437455104039, guid: fc11570b90cacfd4080fb69a52d1051c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -421,6 +431,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262535010506036991, guid: fc11570b90cacfd4080fb69a52d1051c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc11570b90cacfd4080fb69a52d1051c, type: 3}
